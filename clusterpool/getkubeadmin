@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+clusterClaim=ssli
+if [ $# -eq 1 ]
+then
+    clusterClaim=$1
+fi
+
+unset KUBECONFIG
+echo y | oc login --token="$OCP_SA_TOKEN" --server=https://api.collective.aws.red-chesterfield.com:6443 1>&2 > /dev/null
+
+if ! oc get clusterclaim.hive "$clusterClaim" >/dev/null 2>&1; then
+    echo "failed to get clusterclaim $clusterClaim"
+    exit 1
+fi
+
+clusterDeploymentNS=$(oc get clusterclaim.hive "$clusterClaim" -o jsonpath='{.spec.namespace}')
+kubeconfigSecret=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].spec.clusterMetadata.adminPasswordSecretRef.name}')
+oc get secret "$kubeconfigSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "password"}}' | base64 --decode
+echo ""
+webConsoleURL=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].status.webConsoleURL}')
+echo "$webConsoleURL"
