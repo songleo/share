@@ -20,3 +20,4 @@ oc get secret "$kubeconfigSecret" -n "$clusterDeploymentNS" -o 'go-template={{in
 echo ""
 webConsoleURL=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].status.webConsoleURL}')
 echo "$webConsoleURL"
+open "$webConsoleURL"
