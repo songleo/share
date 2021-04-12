@@ -15,9 +15,7 @@ if ! oc get clusterclaim.hive "$clusterClaim" >/dev/null 2>&1; then
 fi
 
 clusterDeploymentNS=$(oc get clusterclaim.hive "$clusterClaim" -o jsonpath='{.spec.namespace}')
-kubeadminPasswdSecret=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].spec.clusterMetadata.adminPasswordSecretRef.name}')
-oc get secret "$kubeadminPasswdSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "password"}}' | base64 --decode
-echo ""
-webConsoleURL=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].status.webConsoleURL}')
-echo "$webConsoleURL"
-open "$webConsoleURL"
+kubeconfigSecret=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].spec.clusterMetadata.adminPasswordSecretRef.name}')
+passwd=$(oc get secret "$kubeconfigSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "password"}}' | base64 --decode)
+apiURL=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].status.apiURL}')
+echo y | oc login -u kubeadmin -p $passwd --insecure-skip-tls-verify $apiURL
