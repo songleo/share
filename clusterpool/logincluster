@@ -19,3 +19,4 @@ kubeconfigSecret=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpat
 passwd=$(oc get secret "$kubeconfigSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "password"}}' | base64 --decode)
 apiURL=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].status.apiURL}')
 echo y | oc login -u kubeadmin -p $passwd --insecure-skip-tls-verify $apiURL
+echo "oc login -u kubeadmin -p $passwd --insecure-skip-tls-verify $apiURL"
