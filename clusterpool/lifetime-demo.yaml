@@ -1,0 +1,15 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterClaim
+metadata:
+ name: lifetime-demo
+ namespace: acm-observability-china
+spec:
+ clusterPoolName: obs-china-aws-4616
+ lifetime: 2h
+ subjects:
+ - apiGroup: rbac.authorization.k8s.io
+   kind: Group
+   name: Core-Services
+ - kind: ServiceAccount
+   name: songleo-sa
+   namespace: acm-observability-china

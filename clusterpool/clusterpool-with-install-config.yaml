@@ -1,0 +1,20 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterPool
+metadata:
+ name: obs-china-aws-4616-test
+ namespace: acm-observability-china
+spec:
+ baseDomain: dev05.red-chesterfield.com
+ imageSetRef:
+   name: img4.6.16-x86-64-appsub
+ installConfigSecretTemplateRef: 
+   name: my-install-config-template
+ skipMachinePools: true
+ size: 1
+ pullSecretRef:
+   name: acm-observability-china-ocp-pull-secret
+ platform:
+   aws:
+     credentialsSecretRef:
+       name: acm-observability-china-aws-creds
+     region: us-east-1
