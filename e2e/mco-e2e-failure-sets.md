@@ -107,6 +107,38 @@ INFO[2021-04-27T03:44:24Z]   Full Stack Trace
 INFO[2021-04-27T03:44:24Z]   github.com/open-cluster-management/observability-e2e-test/pkg/tests.installMCO() 
 INFO[2021-04-27T03:44:24Z]   	/go/src/github.com/open-cluster-management/grafana-dashboard-loader/observability-e2e-test/pkg/tests/observability_install_test.go:105 +0x1536
 ```
+- Observability E2E Suite -> BeforeSuite
+```
+/go/src/github.com/open-cluster-management/observability-e2e-test/pkg/tests/observability-e2e-test_suite_test.go:95
+Timed out after 1500.000s.
+Expected success, but got an error:
+    <*errors.StatusError | 0xc0001e5220>: {
+        ErrStatus: {
+            TypeMeta: {Kind: "", APIVersion: ""},
+            ListMeta: {
+                SelfLink: "",
+                ResourceVersion: "",
+                Continue: "",
+                RemainingItemCount: nil,
+            },
+            Status: "Failure",
+            Message: "statefulsets.apps \"observability-thanos-receive-default\" not found",
+            Reason: "NotFound",
+            Details: {
+                Name: "observability-thanos-receive-default",
+                Group: "apps",
+                Kind: "statefulsets",
+                UID: "",
+                Causes: nil,
+                RetryAfterSeconds: 0,
+            },
+            Code: 404,
+        },
+    }
+    statefulsets.apps "observability-thanos-receive-default" not found
+/go/src/github.com/open-cluster-management/observability-e2e-test/pkg/tests/observability_install_test.go:115
+```
+
 - failed to run deploy-spoke-operator
 
 ```
