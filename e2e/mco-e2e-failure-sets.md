@@ -43,27 +43,6 @@ INFO[2021-05-14T01:16:49Z]       deployment observability-thanos-query should ha
 INFO[2021-05-14T01:16:49Z]                                              
 INFO[2021-05-14T01:16:49Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_reconcile_test.go:167 
 ```
-
-- observability-thanos-store-shard-0 not ready
-
-```
-INFO[2021-04-30T07:39:04Z] I0430 07:13:53.620802    9067 mco_deploy.go:273] Error while retrieving statefulset observability-thanos-receive-default: statefulsets.apps "observability-thanos-receive-default" not found 
-INFO[2021-04-30T07:39:04Z] STEP: Waiting for MCO ready status   
-INFO[2021-04-30T07:39:04Z] Failure [1626.296 seconds]      
-INFO[2021-04-30T07:39:04Z] [BeforeSuite] BeforeSuite       
-INFO[2021-04-30T07:39:04Z] /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability-e2e-test_suite_test.go:95 
-INFO[2021-04-30T07:39:04Z]                                              
-INFO[2021-04-30T07:39:04Z]   Timed out after 1500.000s.            
-INFO[2021-04-30T07:39:04Z]   Expected success, but got an error:        
-INFO[2021-04-30T07:39:04Z]       <*errors.errorString | 0xc000e777f0>: { 
-INFO[2021-04-30T07:39:04Z]           s: "Statefulset observability-thanos-store-shard-0 should have 1 but got 0 ready replicas", 
-INFO[2021-04-30T07:39:04Z]       }                                      
-INFO[2021-04-30T07:39:04Z]       Statefulset observability-thanos-store-shard-0 should have 1 but got 0 ready replicas 
-INFO[2021-04-30T07:39:04Z]                                              
-INFO[2021-04-30T07:39:04Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_install_test.go:126 
-INFO[2021-04-30T07:39:04Z]                                              
-INFO[2021-04-30T07:39:04Z]   Full Stack Trace
-```
 - observability-thanos-store-shard-0 not ready
 
 ```
