@@ -44,7 +44,7 @@ INFO[2021-05-14T01:16:49Z]
 INFO[2021-05-14T01:16:49Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_reconcile_test.go:167 
 ```
 
-- [observability-thanos-store-shard-0 not ready](https://prow.ci.openshift.org/view/gs/origin-ci-test/pr-logs/pull/open-cluster-management_multicluster-observability-operator/500/pull-ci-open-cluster-management-multicluster-observability-operator-main-test-e2e/1388017805483315200#1:build-log.txt%3A288)
+- observability-thanos-store-shard-0 not ready
 
 ```
 INFO[2021-04-30T07:39:04Z] I0430 07:13:53.620802    9067 mco_deploy.go:273] Error while retrieving statefulset observability-thanos-receive-default: statefulsets.apps "observability-thanos-receive-default" not found 
@@ -64,7 +64,7 @@ INFO[2021-04-30T07:39:04Z]   /go/src/github.com/open-cluster-management/multiclu
 INFO[2021-04-30T07:39:04Z]                                              
 INFO[2021-04-30T07:39:04Z]   Full Stack Trace
 ```
-- [observability-thanos-store-shard-0 not ready](https://prow.ci.openshift.org/view/gs/origin-ci-test/pr-logs/pull/open-cluster-management_multicluster-observability-operator/500/pull-ci-open-cluster-management-multicluster-observability-operator-main-test-e2e/1388017805483315200#1:build-log.txt%3A288)
+- observability-thanos-store-shard-0 not ready
 
 ```
 INFO[2021-04-30T07:39:04Z] I0430 07:13:53.620802    9067 mco_deploy.go:273] Error while retrieving statefulset observability-thanos-receive-default: statefulsets.apps "observability-thanos-receive-default" not found 
@@ -84,7 +84,7 @@ INFO[2021-04-30T07:39:04Z]   /go/src/github.com/open-cluster-management/multiclu
 INFO[2021-04-30T07:39:04Z]                                              
 INFO[2021-04-30T07:39:04Z]   Full Stack Trace
 ```
-- [failed to update mco cr](https://prow.ci.openshift.org/view/gs/origin-ci-test/pr-logs/pull/open-cluster-management_grafana-dashboard-loader/33/pull-ci-open-cluster-management-grafana-dashboard-loader-main-test-e2e/1386876542864330752#1:build-log.txt%3A278)
+- failed to update mco cr
 
 ```
 INFO[2021-04-27T03:44:24Z] STEP: Check the api conversion is working as expected 
@@ -127,7 +127,7 @@ INFO[2021-04-27T03:44:24Z]   Full Stack Trace
 INFO[2021-04-27T03:44:24Z]   github.com/open-cluster-management/observability-e2e-test/pkg/tests.installMCO() 
 INFO[2021-04-27T03:44:24Z]   	/go/src/github.com/open-cluster-management/grafana-dashboard-loader/observability-e2e-test/pkg/tests/observability_install_test.go:105 +0x1536
 ```
-- [failed to run deploy-spoke-operator](https://prow.ci.openshift.org/view/gs/origin-ci-test/pr-logs/pull/open-cluster-management_multicluster-observability-operator/495/pull-ci-open-cluster-management-multicluster-observability-operator-main-test-e2e/1387579727249674240#1:build-log.txt%3A116)
+- failed to run deploy-spoke-operator
 
 ```
 INFO[2021-04-29T02:26:00Z] time="2021-04-29T02:13:41Z" level=info msg="  Deployment \"open-cluster-management/klusterlet-registry-server\" successfully rolled out" 
@@ -136,7 +136,7 @@ INFO[2021-04-29T02:26:00Z] time="2021-04-29T02:13:41Z" level=info msg="Created S
 INFO[2021-04-29T02:26:00Z] time="2021-04-29T02:13:44Z" level=fatal msg="Failed to run packagemanifests: error approving install plan: Operation cannot be fulfilled on installplans.operators.coreos.com \"install-7td5d\": the object has been modified; please apply your changes to the latest version and try again\n" 
 INFO[2021-04-29T02:26:00Z] make[2]: *** [Makefile:153: deploy-spoke-operator] Error 1 
 INFO[2021-04-29T02:26:00Z] make[2]: Leaving directory '/go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/registration-operator' 
-
+```
 
 
 ## enhacement
