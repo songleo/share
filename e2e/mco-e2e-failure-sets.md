@@ -31,6 +31,7 @@ INFO[2021-05-14T11:29:02Z]   /go/src/github.com/open-cluster-management/observab
 ```
 
 - P2][Sev2][Observability][Stable] Customize the replicas for thanos query (reconcile/g0) +3
+```
 INFO[2021-05-14T01:16:49Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_reconcile_test.go:135 
 INFO[2021-05-14T01:16:49Z]                                              
 INFO[2021-05-14T01:16:49Z]   Timed out after 600.000s.             
