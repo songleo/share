@@ -1,9 +1,22 @@
 ## failure sets
 
+- [P2][Sev2][Observability][Stable] Should have metrics which defined in custom metrics allowlist (metricslist/g0) +3
+- P2][Sev2][Observability][Stable] Customize the replicas for thanos query (reconcile/g0) +3
+```
+INFO[2021-05-14T01:16:49Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_reconcile_test.go:135 
+INFO[2021-05-14T01:16:49Z]                                              
+INFO[2021-05-14T01:16:49Z]   Timed out after 600.000s.             
+INFO[2021-05-14T01:16:49Z]   Expected success, but got an error:        
+INFO[2021-05-14T01:16:49Z]       <*errors.errorString | 0xc0026458d0>: { 
+INFO[2021-05-14T01:16:49Z]           s: "deployment observability-thanos-query should have 2 but got 3 ready replicas", 
+INFO[2021-05-14T01:16:49Z]       }                                      
+INFO[2021-05-14T01:16:49Z]       deployment observability-thanos-query should have 2 but got 3 ready replicas 
+INFO[2021-05-14T01:16:49Z]                                              
+INFO[2021-05-14T01:16:49Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_reconcile_test.go:167 
+```
 - [P1][Sev1][Observability][Stable] Should have metric data in grafana console (grafana/g0)
 - [P2][Sev2][Observability][Stable] Should have no metrics after custom metrics allowlist deleted (metricslist/g0)
 - [P2][Sev2][Observability] Modifying MCO cr to disable observabilityaddon (addon/g0) - [Stable] Should not have the expected MCO addon pods when disable observabilityaddon
-- [P2][Sev2][Observability][Stable] Should have metrics which defined in custom metrics allowlist (metricslist/g0) +3
 - [Stable] Should have endpoint-operator and metrics-collector being deployed
 - [P1][Sev1][Observability] Cannot enable observability service successfully
 - [P2][Sev2][Observability][Stable] Modifying MCO CR for reconciling (reconcile/g0)
@@ -28,20 +41,6 @@ INFO[2021-05-14T11:29:02Z]       <bool>: false
 INFO[2021-05-14T11:29:02Z]   to be true                             
 INFO[2021-05-14T11:29:02Z]                                              
 INFO[2021-05-14T11:29:02Z]   /go/src/github.com/open-cluster-management/observability-e2e-test/pkg/tests/observability_cert_renew_test.go:131 
-```
-
-- P2][Sev2][Observability][Stable] Customize the replicas for thanos query (reconcile/g0) +3
-```
-INFO[2021-05-14T01:16:49Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_reconcile_test.go:135 
-INFO[2021-05-14T01:16:49Z]                                              
-INFO[2021-05-14T01:16:49Z]   Timed out after 600.000s.             
-INFO[2021-05-14T01:16:49Z]   Expected success, but got an error:        
-INFO[2021-05-14T01:16:49Z]       <*errors.errorString | 0xc0026458d0>: { 
-INFO[2021-05-14T01:16:49Z]           s: "deployment observability-thanos-query should have 2 but got 3 ready replicas", 
-INFO[2021-05-14T01:16:49Z]       }                                      
-INFO[2021-05-14T01:16:49Z]       deployment observability-thanos-query should have 2 but got 3 ready replicas 
-INFO[2021-05-14T01:16:49Z]                                              
-INFO[2021-05-14T01:16:49Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_reconcile_test.go:167 
 ```
 - observability-thanos-store-shard-0 not ready
 
