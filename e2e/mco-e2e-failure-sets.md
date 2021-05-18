@@ -116,6 +116,7 @@ INFO[2021-04-29T02:26:00Z] make[2]: *** [Makefile:153: deploy-spoke-operator] Er
 INFO[2021-04-29T02:26:00Z] make[2]: Leaving directory '/go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/registration-operator' 
 ```
 
+- check managedcluster status
 
 ## enhancement
 
