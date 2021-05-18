@@ -1,5 +1,7 @@
 ## failure sets
 
+collect from canary failure and PR test, or you can tell me which failure you have ever seen.
+
 - [P2][Sev2][Observability][Stable] Should have metrics which defined in custom metrics allowlist (metricslist/g0) +3
 - P2][Sev2][Observability][Stable] Customize the replicas for thanos query (reconcile/g0) +3
 ```
