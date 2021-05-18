@@ -117,7 +117,7 @@ INFO[2021-04-29T02:26:00Z] make[2]: Leaving directory '/go/src/github.com/open-c
 ```
 
 
-## enhacement
+## enhancement
 
 - do not need to run e2e when submit non-code related PR, for example, only update doc
 
