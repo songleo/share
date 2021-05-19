@@ -166,7 +166,7 @@ INFO[2021-04-29T02:26:00Z] make[2]: Leaving directory '/go/src/github.com/open-c
 - failed to update mco cr: retry
 - check managedcluster status: 
 - do not need to run e2e when submit non-code related PR, for example, only update doc
-  
+- do not need to check default value in cr
 # move Integration
 - [P2][Sev2][Observability][Stable] Should have metrics which defined in custom metrics allowlist (metricslist/g0) +3
 - P2][Sev2][Observability][Stable] Customize the replicas for thanos query (reconcile/g0) +3
