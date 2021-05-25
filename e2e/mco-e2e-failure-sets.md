@@ -161,13 +161,14 @@ INFO[2021-04-29T02:26:00Z] make[2]: Leaving directory '/go/src/github.com/open-c
 ## tips
 
 - rbac-quary-proxy pod issue
-- [P1][Sev1][Observability][Integration] Should have metrics collector pod restart if cert secret re-generated (certrenew/g0) [It]: check restart label
-- close 1 times issue when it can run successfully
-- failed to update mco cr: add retry
+- [P1][Sev1][Observability][Integration] Should have metrics collector pod restart if cert secret re-generated (certrenew/g0) [It]: check restart label done
+- close 1 times issue when it can run successfully 
+- failed to update mco cr: add retry  done
 - check managedcluster status: check managedcluster label
-- do not need to run e2e when submit non-code related PR, for example, only update doc: https://github.com/openshift/release/blob/master/ci-operator/jobs/open-cluster-management/multicluster-observability-operator/open-cluster-management-multicluster-observability-operator-main-presubmits.yaml
+- do not need to run e2e when submit non-code related PR, for example, only update doc: https://github.com/openshift/release/blob/master/ci-operator/jobs/open-cluster-management/multicluster-observability-operator/ open-cluster-management-multicluster-observability-operator-main-presubmits.yaml
+- run e2e test only if specific patterns are matched
 - do not need to check default value in cr
 # move Integration
 
-- [P2][Sev2][Observability][Stable] Should have metrics which defined in custom metrics allowlist (metricslist/g0) +3
-- P2][Sev2][Observability][Stable] Customize the replicas for thanos query (reconcile/g0) +3
+- [P2][Sev2][Observability][Stable] Should have metrics which defined in custom metrics allowlist (metricslist/g0) +3 done
+- P2][Sev2][Observability][Stable] Customize the replicas for thanos query (reconcile/g0) +3 done
