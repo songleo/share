@@ -172,3 +172,29 @@ INFO[2021-04-29T02:26:00Z] make[2]: Leaving directory '/go/src/github.com/open-c
 
 - [P2][Sev2][Observability][Stable] Should have metrics which defined in custom metrics allowlist (metricslist/g0) +3 done
 - P2][Sev2][Observability][Stable] Customize the replicas for thanos query (reconcile/g0) +3 done
+
+
+
+# new failed case
+
+- INFO[2021-05-26T16:04:27Z]   [P2][Sev2][Observability][Stable] delete the customized rules (alert/g0) [It] 
+INFO[2021-05-26T16:04:27Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_alert_test.go:187 
+INFO[2021-05-26T16:04:27Z]                                              
+INFO[2021-05-26T16:04:27Z]   Timed out after 600.002s.             
+INFO[2021-05-26T16:04:27Z]   Expected success, but got an error:        
+INFO[2021-05-26T16:04:27Z]       <*errors.errorString | 0xc000a756c0>: { 
+INFO[2021-05-26T16:04:27Z]           s: "The observability-thanos-rule is not being restarted in 10 minutes", 
+INFO[2021-05-26T16:04:27Z]       }                                      
+INFO[2021-05-26T16:04:27Z]       The observability-thanos-rule is not being restarted in 10 minutes 
+INFO[2021-05-26T16:04:27Z]                                              
+INFO[2021-05-26T16:04:27Z]   /go/src/github.com/open-cluster-management/multicluster-observability-operator/observability-e2e-test/pkg/tests/observability_alert_test.go:214 
+
+
+- /go/src/github.com/open-cluster-management/observability-e2e-test/pkg/tests/observability-e2e-test_suite_test.go:100
+Timed out after 300.000s.
+Expected success, but got an error:
+    <*errors.errorString | 0xc001c24720>: {
+        s: "Failed to delete MCO addon instance",
+    }
+    Failed to delete MCO addon instance
+/go/src/github.com/open-cluster-management/observability-e2e-test/pkg/tests/observability_uninstall_test.go:57
