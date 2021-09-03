@@ -14,7 +14,7 @@ then
 fi
 
 unset KUBECONFIG
-echo y | oc login --token="$OCP_SA_TOKEN" --server=https://api.collective.aws.red-chesterfield.com:6443 1>&2 > /dev/null
+echo y | oc login --insecure-skip-tls-verify --token="$OCP_SA_TOKEN" --server=https://api.collective.aws.red-chesterfield.com:6443 1>&2 > /dev/null
 
 if ! oc get clusterclaim.hive "$clusterClaim" >/dev/null 2>&1; then
     echo "create a new clusterclaim $clusterClaim"

@@ -16,8 +16,13 @@ fi
 
 clusterDeploymentNS=$(oc get clusterclaim.hive "$clusterClaim" -o jsonpath='{.spec.namespace}')
 kubeadminPasswdSecret=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].spec.clusterMetadata.adminPasswordSecretRef.name}')
-oc get secret "$kubeadminPasswdSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "password"}}' | base64 --decode
-echo ""
+# oc get secret "$kubeadminPasswdSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "password"}}' | base64 --decode
+passwd=$(oc get secret "$kubeadminPasswdSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "password"}}' | base64 --decode)
+echo $passwd
 webConsoleURL=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].status.webConsoleURL}')
 echo "$webConsoleURL"
 open "$webConsoleURL"
+
+apiURL=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].status.apiURL}')
+# echo y | oc login -u kubeadmin -p $passwd --insecure-skip-tls-verify $apiURL
+echo "oc login -u kubeadmin -p $passwd --insecure-skip-tls-verify -n open-cluster-management-observability $apiURL"
