@@ -1,20 +1,16 @@
 #!/usr/bin/env bash
 
 clusterClaim=ssli
-kubeConf=/tmp/ssli-kubeconfig
 
-if [ $# -eq 1 ]
+if [ $# -ge 1 ]
 then
     clusterClaim=$1
 fi
 
-if [ $# -ge 2 ]
-then
-    kubeConf=$2
-fi
+kubeConf=~/kubeconf/$clusterClaim-kubeconfig
 
 unset KUBECONFIG
-echo y | oc login --token="$OCP_SA_TOKEN" --server=https://api.collective.aws.red-chesterfield.com:6443 1>&2 > /dev/null
+echo y | oc login --insecure-skip-tls-verify --token="$OCP_SA_TOKEN" --server=https://api.collective.aws.red-chesterfield.com:6443 1>&2 > /dev/null
 
 if ! oc get clusterclaim.hive "$clusterClaim" >/dev/null 2>&1; then
     echo "create a new clusterclaim $clusterClaim"
@@ -23,23 +19,27 @@ apiVersion: hive.openshift.io/v1
 kind: ClusterClaim
 metadata:
  name: $clusterClaim
- namespace: acm-observability-china
+ namespace: demo
+ labels:
+   do-not-delete: "true"
+ annotations:
+   cluster.open-cluster-management.io/createmanagedcluster: "false"
 spec:
- clusterPoolName: obs-china-aws-4616
+ clusterPoolName: demo-aws-495
  subjects:
  - apiGroup: rbac.authorization.k8s.io
    kind: Group
-   name: Core-Services
+   name: demo
  - kind: ServiceAccount
-   name: songleo-sa
-   namespace: acm-observability-china
+   name: demo
+   namespace: demo
 EOF
   sleep 5
 fi
 
 # export cluster KUBECONFIG
-clusterDeploymentNS=$(oc get clusterclaim.hive $clusterClaim -o jsonpath='{.spec.namespace}')
+clusterDeploymentNS=$(oc get clusterclaim.hive -n demo $clusterClaim -o jsonpath='{.spec.namespace}')
 kubeconfigSecret=$(oc get clusterdeployment -n "$clusterDeploymentNS" -o jsonpath='{.items[].spec.clusterMetadata.adminKubeconfigSecretRef.name}')
-oc get secret "$kubeconfigSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "kubeconfig"}}' | base64 --decode > /tmp/ssli-kubeconfig
+oc get secret "$kubeconfigSecret" -n "$clusterDeploymentNS" -o 'go-template={{index .data "kubeconfig"}}' | base64 --decode > $kubeConf
 export KUBECONFIG=$kubeConf
 echo "run 'export KUBECONFIG=$kubeConf' to access your cluster"

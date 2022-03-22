@@ -3,3 +3,4 @@
 unset KUBECONFIG
 echo y | oc login --token="$OCP_SA_TOKEN" --server=https://api.collective.aws.red-chesterfield.com:6443 1>&2 > /dev/null
 oc get clusterclaim.hive
+oc get clusterpool
