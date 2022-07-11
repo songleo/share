@@ -1,9 +1,15 @@
 #!/bin/bash
 
+if ! command -v htpasswd &> /dev/null
+then
+    echo "htpasswd could not be found"
+    exit
+fi
+
 if [ $# -ne 2 ]
 then
     echo "$0 user_name password"
-    exit 1
+    exit
 fi
 
 htpasswd -c -B -b admin.htpasswd $1 $2
